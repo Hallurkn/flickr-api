@@ -1,6 +1,11 @@
 @import '_globals';
 
 :host {
+
+  > * + * {
+    margin-bottom: #{$spacing-base / 2};
+  }
+
   .intro {
     h1 {
       font-size: modular-scale(2);
@@ -12,8 +17,6 @@
   }
 
   .card.info {
-    margin-bottom: #{$spacing-base / 2};
-
     h6 {
       font-size: 0.8rem;
       font-weight: 400;
@@ -38,5 +41,9 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
       }
     }
+  }
+
+  .load {
+    width: 100%;
   }
 }

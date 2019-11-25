@@ -12,10 +12,15 @@ export class FeedHeaderComponent {
   @Input() photos: Photo[];
   @Output() clearEmitter: EventEmitter<any> = new EventEmitter();
   @Output() searchEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() perPageEmitter: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   search(searchQuery: string, perPage: number): void {
+    if (!searchQuery) {
+      return;
+    }
+
     this.searchEmitter.emit({
       searchQuery,
       perPage
@@ -24,5 +29,9 @@ export class FeedHeaderComponent {
 
   clear() {
     this.clearEmitter.emit(true);
+  }
+
+  perPageChange(perPage: number) {
+    this.perPageEmitter.emit(perPage);
   }
 }

@@ -14,22 +14,24 @@ export class ImageService {
   private API_KEY = '3742c6f8a1530492c986e06d9e350996';
   constructor(private http: HttpClient) { }
 
-  getImages(tag: string, perPage: number = 24): Observable<object> {
-    // tslint:disable-next-line:max-line-length
+  getImages(tag: string, perPage: number = 24, page: number = 1): Observable<object> {
     const API_ENDPOINT = `https://api.flickr.com/services/rest/?method=flickr.photos.search`;
-    const query = `&api_key=${this.API_KEY}&per_page=${perPage}&tags=${tag}&format=json&nojsoncallback=1`;
+    const query = `&api_key=${this.API_KEY}&per_page=${perPage}&page=${page}&tags=${tag}&format=json&nojsoncallback=1`;
 
     return this.http
       .get(`${API_ENDPOINT}${query}`)
       .pipe(
         map((val: any) => {
           if (val.stat === 'ok') {
-            return val.photos.photo.map((photo: any) => {
-              return {
-                url: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_n.jpg`,
-                title: photo.title,
-              };
-            });
+            return {
+              total: parseInt(val.photos.total, 10),
+              photos: val.photos.photo.map((photo: any) => {
+                return {
+                  url: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_n.jpg`,
+                  title: photo.title,
+                };
+              })
+            };
           } else {
             return [];
           }

@@ -1,6 +1,6 @@
 <div class="input-group">
   <input type="search" [(ngModel)]="searchQuery" placeholder="Enter a word you wish to search from.." />
-  <select [(ngModel)]="perPage">
+  <select [(ngModel)]="perPage" (ngModelChange)="perPageChange($event)">
     <option value="12">12 per page</option>
     <option value="24">24 per page</option>
     <option value="36">36 per page</option>

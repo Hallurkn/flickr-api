@@ -17,6 +17,7 @@
   [photos]="photos"
   (clearEmitter)="clearHandler()"
   (searchEmitter)="searchHandler($event.searchQuery, $event.perPage)"
+  (perPageEmitter)="perPage = $event"
 ></app-feed-header>
 
 <div class="card info" *ngIf="photos.length === 0 || currentQuery">
@@ -26,11 +27,17 @@
         No photos were found that match your search query, please try again.
       </ng-container>
       <ng-container *ngIf="photos.length > 0 && currentQuery">
-        Showing results for: <b>{{ currentQuery }}</b>
+        Showing <b>{{ photos.length }}</b> of <b>{{ total }}</b> results for the tag - <b>{{ currentQuery }}</b>
       </ng-container>
     </h6>
   </div>
 </div>
-<div class="cards-wrapper" [class.grid]="isGrid" *ngIf="photos">
+
+<div class="cards-wrapper" [class.grid]="isGrid" *ngIf="photos.length" [@listAnimation]="photos.length">
   <app-feed-item *ngFor="let photo of photos" [photo]="photo"></app-feed-item>
 </div>
+
+<app-spinner *ngIf="loading" [size]="'small'"></app-spinner>
+
+<button class="btn load" *ngIf="total > photos.length && photos.length !== 0 && !loading" (click)="loadMore(currentQuery, perPage)">Load more</button>
+
