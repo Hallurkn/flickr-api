@@ -4,5 +4,5 @@
   @include container;
   display: flex;
   flex-direction: column;
-  margin-top: #{$header-height + $spacing-base};
+  padding-top: #{$header-height + $spacing-base};
 }
