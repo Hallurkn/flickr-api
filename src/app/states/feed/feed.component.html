@@ -1,3 +1,16 @@
+<div class="intro">
+  <h1>Flickr photo search</h1>
+  <p>
+    The following <b>Application</b> gives you the possibility to search through flickr's
+    database of photos by typing in a tag and pressing search.
+    <br/>If you type more
+    than one word, the first word in that sentence will be used for the search.
+    <br />
+    <br />
+    Set the amount of items per page to show either a maximum of <b>12</b>, <b>24</b> or <b>36</b> results.
+  </p>
+</div>
+
 <app-feed-header
   [searchQuery]="searchQuery"
   [perPage]="perPage"
@@ -9,14 +22,12 @@
 <div class="card info" *ngIf="photos.length === 0 || currentQuery">
   <div class="card__body card__header">
     <h6 [style.margin.px]="0">
-      <small>
-        <ng-container *ngIf="photos.length === 0">
-          No photos were found that match your search query, please try again.
-        </ng-container>
-        <ng-container *ngIf="photos.length > 0 && currentQuery">
-          Showing results for: <b>{{ currentQuery }}</b>
-        </ng-container>
-      </small>
+      <ng-container *ngIf="photos.length === 0">
+        No photos were found that match your search query, please try again.
+      </ng-container>
+      <ng-container *ngIf="photos.length > 0 && currentQuery">
+        Showing results for: <b>{{ currentQuery }}</b>
+      </ng-container>
     </h6>
   </div>
 </div>
