@@ -1,0 +1,45 @@
+@import '_globals';
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-base / 2;
+  margin-bottom: $spacing-base / 2;
+
+  @include mq(md) {
+    margin-top: $spacing-base;
+    margin-bottom: $spacing-base;
+  }
+
+  .spinner {
+    display: inline-block;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: $color-pink-300;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+
+    &.small {
+      width: $spacing-base;
+      height: $spacing-base;
+    }
+
+    &.medium {
+      width: #{$spacing-base * 2};
+      height: #{$spacing-base * 2};
+    }
+
+    &.large {
+      width: #{$spacing-base * 3};
+      height: #{$spacing-base * 3};
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

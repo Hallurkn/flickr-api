@@ -11,6 +11,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FeedHeaderComponent } from './states/feed/feed-header/feed-header.component';
 import { FeedItemComponent } from './states/feed/feed-item/feed-item.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FeedItemComponent } from './states/feed/feed-item/feed-item.component';
     HeaderComponent,
     FeedHeaderComponent,
     FeedItemComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
