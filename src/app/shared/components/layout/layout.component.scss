@@ -4,5 +4,9 @@
   @include container;
   display: flex;
   flex-direction: column;
-  padding-top: #{$header-height + $spacing-base};
+  padding-top: #{$header-height + ($spacing-base / 2)};
+
+  @include mq(md) {
+    padding-top: #{$header-height + $spacing-base};
+  }
 }

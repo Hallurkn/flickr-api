@@ -1,10 +1,21 @@
 @import '_globals';
 
 :host {
+  .intro {
+    h1 {
+      font-size: modular-scale(2);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
   .card.info {
     margin-bottom: #{$spacing-base / 2};
 
     h6 {
+      font-size: 0.8rem;
       font-weight: 400;
     }
   }

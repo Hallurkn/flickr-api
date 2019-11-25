@@ -5,11 +5,34 @@
   align-items: center;
   margin-bottom: #{$spacing-base / 2};
 
-  * + * {
-    margin-left: #{$spacing-base / 2};
+  @include mq($until: md) {
+    flex-wrap: wrap;
+  }
+
+  * {
+    flex-basis: 100%;
+
+    @include mq(md) {
+      flex-basis: auto;
+    }
+
+    & + * {
+      margin-top: #{$spacing-base / 4};
+
+      @include mq(md) {
+        margin-top: 0;
+        margin-left: #{$spacing-base / 2};
+      }
+    }
+  }
+
+  input {
+    flex-basis: 0 1 calc(100% - 125px);
   }
 
   select {
-    max-width: 200px;
+    @include mq(md) {
+      max-width: 200px;
+    }
   }
 }
