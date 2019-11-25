@@ -72,7 +72,7 @@ export class FeedComponent implements OnDestroy {
   }
 }
 
-const getFirstWord = (str) => {
+const getFirstWord = (str: string) => {
   const spacePosition = str.indexOf(' ');
   if (spacePosition === -1) {
     return str;

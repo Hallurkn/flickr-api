@@ -36,7 +36,7 @@ export class ImageService {
             return [];
           }
         }),
-        catchError(this.handleError) // then handle the error
+        catchError(this.handleError)
       );
   }
 
