@@ -1,0 +1,30 @@
+@import '_globals';
+
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: #{$header-height * 0.66};
+  border-bottom: 1px solid $color-grey-100;
+
+  @include mq(md) {
+    height: $header-height;
+  }
+
+  .logo {
+    width: #{$spacing-base * 1.5};
+  }
+
+  header {
+    @include container;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    font-family: $headings-font-family;
+  }
+}
