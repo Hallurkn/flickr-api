@@ -1,0 +1,15 @@
+@import '_globals';
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: #{$spacing-base / 2};
+
+  * + * {
+    margin-left: #{$spacing-base / 2};
+  }
+
+  select {
+    max-width: 200px;
+  }
+}

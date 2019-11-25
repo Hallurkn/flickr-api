@@ -9,29 +9,44 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnDestroy {
-  public searchQuery = '';
-  public perPage: number;
-  public currentQuery: string;
   public isGrid = true;
-  public images: Photo[] = [];
-  private imageSub: Subscription = new Subscription();
+  public searchQuery = '';
+  public perPage = 24;
+  public currentQuery: string;
+  public photos: Photo[] = [];
+  private photosub: Subscription = new Subscription();
 
   constructor(
-    private imageService: ImageService,
+    private imageService: ImageService
   ) { }
 
   searchHandler(query: string, perPage?: number) {
-    this.imageSub = this.imageService.getImages(query, perPage)
+    const tag = getFirstWord(query);
+    this.photosub = this.imageService.getImages(tag, perPage)
       .subscribe((res: Photo[]) => {
-        this.images = res;
-        this.currentQuery = query;
+        this.photos = res;
+        this.currentQuery = tag;
       }, error => {
         this.currentQuery = '';
         console.error(error);
       });
   }
 
+  clearHandler() {
+    this.currentQuery = '';
+    this.photos = [];
+  }
+
   ngOnDestroy(): void {
-    this.imageSub.unsubscribe();
+    this.photosub.unsubscribe();
   }
 }
+
+const getFirstWord = (str) => {
+  const spacePosition = str.indexOf(' ');
+  if (spacePosition === -1) {
+    return str;
+  } else {
+    return str.substr(0, spacePosition);
+  }
+};

@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card__header">
+    <img [src]="photo.url" [alt]="photo.title" />
+  </div>
+
+  <div class="card__body">
+    <b>{{ photo.title ? photo.title : 'N/A' }}</b>
+  </div>
+</div>
