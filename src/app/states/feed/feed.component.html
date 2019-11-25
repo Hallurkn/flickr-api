@@ -1,1 +1,29 @@
-<h1>Feed</h1>
+<div class="input-group">
+  <input type="search" [(ngModel)]="searchQuery" placeholder="Enter search query.." />
+  <input type="number" min="1" max="100" [(ngModel)]="perPage" placeholder="Enter number of photos to fetch..">
+  <button class="btn" [disabled]="!searchQuery" (click)="searchHandler(searchQuery, perPage)">Search</button>
+</div>
+
+<div class="card info" *ngIf="images.length === 0 || currentQuery">
+  <div class="card__body card__header">
+      <h6 [style.margin.px]="0">
+        <ng-container *ngIf="images.length === 0">
+          No photos were found that match your search query, please try again.
+        </ng-container>
+        <ng-container *ngIf="images.length > 0 && currentQuery">
+          Showing results for: <b>{{currentQuery}}</b>
+        </ng-container>
+      </h6>
+  </div>
+</div>
+<div class="cards-wrapper" [class.grid]="isGrid" *ngIf="images">
+  <div class="card" *ngFor="let image of images">
+    <div class="card__header">
+      <img [src]="image.url" [alt]="image.title" />
+    </div>
+
+    <div class="card__body">
+      <b>{{ image.title ? image.title : 'N/A' }}</b>
+    </div>
+  </div>
+</div>

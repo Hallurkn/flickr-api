@@ -1,6 +1,27 @@
 .card {
-  border-radius: $border-radius-base;
-  border: 1px solid $input-border-color;
-  background-color: $color-white;
-  padding: #{$spacing-base / 2};
+
+  &.info .card__body {
+    background-color: $color-blue-600;
+  }
+
+  &__header {
+    border-top-left-radius: $border-radius-base;
+    border-top-right-radius: $border-radius-base;
+    border-left: 1px solid $input-border-color;
+    border-top: 1px solid $input-border-color;
+    border-right: 1px solid $input-border-color;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    border-bottom-left-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    border: 1px solid $input-border-color;
+    background-color: $color-white;
+    padding: #{$spacing-base / 2};
+  }
 }
