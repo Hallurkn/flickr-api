@@ -1,0 +1,19 @@
+.small {
+  font-size: $font-size-base * 0.8 !important;
+}
+
+.large {
+  font-size: $font-size-base * 1.2 !important;
+}
+
+.text-truncate {
+  @include text-truncate;
+}
+
+.text-hyphenate {
+  @include text-hyphenate;
+}
+
+.text-underline {
+  @include underline;
+}
