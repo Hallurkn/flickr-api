@@ -1,0 +1,139 @@
+// Colors
+$color-white: #ffffff;
+$color-black: #000000;
+
+// Accent colors
+$color-blue-300: #0063dc;
+$color-blue-100: darken($color-blue-300, 30%);
+$color-blue-200: darken($color-blue-300, 15%);
+$color-blue-400: lighten($color-blue-300, 15%);
+$color-blue-500: lighten($color-blue-300, 30%);
+
+$color-pink-300: #ff0084;
+$color-pink-100: darken($color-pink-300, 30%);
+$color-pink-200: darken($color-pink-300, 15%);
+$color-pink-400: lighten($color-pink-300, 15%);
+$color-pink-500: lighten($color-pink-300, 30%);
+
+$color-grey-100: #e5e9ed;
+$color-grey-200: #00000029;
+$color-grey-300: #0000001a;
+$color-grey-400: #4c6c83;
+
+// Global
+$font-antialiased: true !default;
+$font-size-base: 1rem !default;
+$font-family-base: 'PT Serif', serif !default;
+$font-weight-base: 400 !default;
+$line-height-base: 1.5 !default;
+$global-bg: $color-white !default;
+$text-color: $color-blue-100 !default;
+
+// Header
+$header-height: 64px;
+
+// Border
+$border-radius-base: 5px;
+
+// Spacing
+$spacing-base: 40px !default;
+
+// Headings
+$headings: (
+  'h1, .h1',
+  'h2, .h2',
+  'h3, .h3',
+  'h4, .h4',
+  'h5, .h5',
+  'h6, .h6'
+) !default;
+
+$headings-spacing: 0.4em !default;
+$headings-font-family: 'Montserrat', sans-serif !default;
+$headings-font-weight: 700 !default;
+$headings-text-transform: none !default;
+$headings-line-height: 1.2 !default;
+$headings-letter-spacing: 0.025rem !default;
+$headings-color: inherit !default;
+
+$type-scale-base: $font-size-base !default;
+$type-scale: 1.33 !default;
+
+// Link
+$link-color: $color-grey-400 !default;
+$link-hover-color: darken($color-grey-400, 10%) !default;
+$link-decoration: none !default;
+$link-weight: 600 !default;
+$link-hover-decoration: none !default;
+
+
+// Breakpoints
+$mq-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$mq-static-breakpoint: nth(
+  map-keys($mq-breakpoints),
+  length($mq-breakpoints)
+) !default;
+
+// Grid
+$grid-gutter: 40px !default;
+$grid-container: nth(
+  map-values($mq-breakpoints),
+  length($mq-breakpoints)
+) !default;
+$grid-container-gutter: $grid-gutter !default;
+
+// Form
+$input-selector: (
+  '[type="email"]',
+  '[type="number"]',
+  '[type="password"]',
+  '[type="search"]',
+  '[type="tel"]',
+  '[type="text"]',
+  '[type="url"]',
+  'textarea',
+  'select'
+) !default;
+
+$input-height: 2.75em !default;
+$input-padding-vertical: #{$spacing-base / 4} !default;
+$input-padding-horizontal: #{$spacing-base / 2} !default;
+$input-bg: #fff !default;
+$input-color: $color-blue-500 !default;
+$input-border-color: $color-grey-100 !default;
+$input-focus-border-color: $color-blue-300 !default;
+$input-border-radius: $border-radius-base !default;
+$input-transition: border-color 0.15s ease !default;
+$input-disabled-bg: #eee !default;
+$input-disabled-color: #555 !default;
+$input-disabled-border-color: #ccc !default;
+
+$placeholder-color: lighten($color-black, 75%) !default;
+
+// Button
+$button-selector: '.btn' !default;
+$button-padding-vertical: 10px !default;
+$button-padding-horizontal: 36px !default;
+$button-bg: $color-blue-300 !default;
+$button-bg-dark: $color-blue-100 !default;
+$button-font-weight: 600 !default;
+$button-color: #fff !default;
+$button-border-width: 1px !default;
+$button-border-color: transparent !default;
+$button-border-radius: $border-radius-base !default;
+$button-text-transform: none !default;
+$button-hover-bg: darken($button-bg, 10%) !default;
+$button-hover-bg-dark: darken($button-bg-dark, 10%) !default;
+$button-hover-color: #fff !default;
+$button-hover-border-color: $button-border-color !default;
+$button-active-bg: $button-hover-bg !default;
+$button-active-color: $button-hover-color !default;
+$button-disabled-opacity: 0.65 !default;
+$button-transition: background-color 0.15s ease, color 0.15s ease !default;

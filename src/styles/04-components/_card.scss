@@ -1,0 +1,6 @@
+.card {
+  border-radius: $border-radius-base;
+  border: 1px solid $input-border-color;
+  background-color: $color-white;
+  padding: #{$spacing-base / 2};
+}

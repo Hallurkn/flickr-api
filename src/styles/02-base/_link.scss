@@ -1,0 +1,12 @@
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  font-weight: $link-weight;
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
