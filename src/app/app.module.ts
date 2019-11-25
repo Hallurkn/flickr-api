@@ -1,6 +1,7 @@
 import { ImageService } from './shared/services/image/image.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,7 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
