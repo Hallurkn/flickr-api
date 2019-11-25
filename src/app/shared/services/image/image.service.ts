@@ -14,10 +14,10 @@ export class ImageService {
   private API_KEY = '3742c6f8a1530492c986e06d9e350996';
   constructor(private http: HttpClient) { }
 
-  getImages(queryTag: string, perPage: number = 24): Observable<object> {
+  getImages(tag: string, perPage: number = 24): Observable<object> {
     // tslint:disable-next-line:max-line-length
     const API_ENDPOINT = `https://api.flickr.com/services/rest/?method=flickr.photos.search`;
-    const query = `&api_key=${this.API_KEY}&per_page=${perPage}&tags=${queryTag}&format=json&nojsoncallback=1`;
+    const query = `&api_key=${this.API_KEY}&per_page=${perPage}&tags=${tag}&format=json&nojsoncallback=1`;
 
     return this.http
       .get(`${API_ENDPOINT}${query}`)

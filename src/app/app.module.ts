@@ -9,6 +9,8 @@ import { FeedComponent } from './states/feed/feed.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { FeedHeaderComponent } from './states/feed/feed-header/feed-header.component';
+import { FeedItemComponent } from './states/feed/feed-item/feed-item.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     FeedComponent,
     LayoutComponent,
     HeaderComponent,
+    FeedHeaderComponent,
+    FeedItemComponent,
   ],
   imports: [
     BrowserModule,
